@@ -1,0 +1,5 @@
+<jboss-web>
+	<context-root>/survey</context-root> 
+  	<virtual-host>localhost</virtual-host>   
+  	<depends>jboss.jca:service=DataSourceBinding,name=survey</depends>	
+</jboss-web>

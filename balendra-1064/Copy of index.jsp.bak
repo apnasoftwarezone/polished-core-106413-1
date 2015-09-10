@@ -1,0 +1,161 @@
+<%@ include file="includes/includeme.jsp" %>
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Html 5 Example</title>
+  <link href="style/style.css" rel="stylesheet" type="text/css" />
+  <script>
+  		      var serverUrl = '<%=serverUrl%>';
+	          var serviceUrl = '<%=serviceUrl%>';
+  </script>
+      <script src="js/util.js" type="text/javascript"></script>
+      <script src="js/variable.js" type="text/javascript"></script>  	  
+	  <script src="js/object.js" type="text/javascript"></script>
+	  <script src="js/taffy.js" type="text/javascript"></script>
+	  <script src="js/taffy-min.js" type="text/javascript"></script>
+	  <script src="js/requesthandler.js" type="text/javascript"></script>
+	  <script src="js/responsehandler.js" type="text/javascript"></script>
+	  <script src="js/main.js" type="text/javascript"></script>
+	  <script src="js/jquery-1.11.1.min.js"></script>
+	  <script src="js/jquery.ajaxfileupload.js"></script>
+   
+   <script>
+			  var locationdb = TAFFY([]) ;  
+			  var surveydb = TAFFY([]) ; 
+			  var sectiondb = TAFFY([]) ; 
+			  var questiondb = TAFFY([]) ; 
+			  var typedb = TAFFY(typeJson) ; 
+			  
+			  $(document).ready(function(){
+			  
+			  $('input[type="file"]').ajaxfileupload({
+			       'action': 'UploadFile',           
+			   'onComplete': function(response) {        
+			         $('#busyDiv').hide();
+			            response = replaceAll('<pre>','', response);
+			            response = replaceAll('</pre>','', response);
+			            
+			            handleResponse(response);
+			       },
+			       'onStart': function() {
+			       	  alert( $(this).attr('name') )
+			         $('#busyDiv').show();
+			       }
+			  });
+			});
+			
+		function replaceAll(find, replace, str) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}	  
+			  
+/**
+ * It will show/hide particular div.
+ * @author vmishra
+ * @param divid
+ * @return
+ */
+function showhide(divid, linkid){ 
+				try{
+					var imgsrc='';
+					var alttext='';
+					var _div = document.getElementById(divid); 
+					if(_div.style.display=='none')
+					{
+						alttext='Hide detail';
+						imgsrc='style/hidedetail.png';
+						document.getElementById(divid).style.display = '';
+						// showDiv(divid);
+					}
+					else
+					{
+						alttext='Show detail';
+						imgsrc='style/showdetail.png';
+						document.getElementById(divid).style.display = 'none';
+						//hideDiv(divid);
+					}
+					var html='<img border="0" src="'+imgsrc+'" alt="' + alttext +'"/>';
+					document.getElementById(linkid).innerHTML = html;
+				}catch(e){
+					alert('Exception in showhide: ' + e) ;
+				}
+}
+			  
+			function manualValidate(ev, formName ) {
+					ev.preventDefault();					 
+					if( formName == 'regitserbusinessform' ){
+						 var theform = utilObject.getFormObject(formName) ;
+						 var password = theform.password.value ;
+						 var confirmPassword = theform.confirmpassword.value ;
+						 if( password != confirmPassword ){
+							 theform.confirmpassword.value = '' ;
+							 
+							 theform.confirmpassword.focus() ;
+							 theform.confirmpassword.setCustomValidity('Password and confirm password must match');
+
+						 }
+						 else{
+							    doSurveyAction(ACTION_REGISTER_BUSINESS_OK);
+								 
+						 }
+
+					}
+					else if( formName == 'loginform' ){
+								doSurveyAction( ACTION_LOGIN_OK );
+					}
+					else if(formName == 'addeditlocationform'){
+							doSurveyAction( ACTION_ADD_LOCATION_OK );
+					}
+					else if(formName == 'addeditsurveyform'){
+							doSurveyAction( ACTION_ADD_SURVEY_OK );
+					}
+					else if(formName == 'addeditsectionform'){
+							doSurveyAction( ACTION_ADD_SECTION_OK );
+					}
+				
+			}
+			function validate(f){	
+				 
+					f.setCustomValidity('Hello ! Please enter 6 digit password');
+			}
+   </script>
+
+
+ </head>
+ <body>
+				<div id="topdiv">Top div content</div>
+					<div id="containerdiv">
+					
+							<%@ include file="includes/basichtml.jsp" %>
+							
+				   </div>
+<div id="bottomdiv">Bottom div content</div>
+
+<script type="text/javascript">
+
+				  // ref: http://diveintohtml5.org/detect.html
+				  function supports_input_placeholder()
+				  {
+					var i = document.createElement('input');
+					return 'placeholder' in i;
+				  }
+
+				  if(!supports_input_placeholder()) {
+					var fields = document.getElementsByTagName('INPUT');
+					for(var i=0; i < fields.length; i++) {
+					  if(fields[i].hasAttribute('placeholder')) {
+						fields[i].defaultValue = fields[i].getAttribute('placeholder');
+						fields[i].onfocus = function() { if(this.value == this.defaultValue) this.value = ''; }
+						fields[i].onblur = function() { if(this.value == '') this.value = this.defaultValue; }
+					  }
+					}
+				  }
+
+</script>
+<div id="busyDiv" style="display:none;"><img src="style/busy.gif" /></div>
+ </body>
+</html>

@@ -1,0 +1,262 @@
+
+				  input:required:invalid, input:focus:invalid {
+					background-image: url(invalid.png);
+					background-position: right top;
+					background-repeat: no-repeat;
+				  }
+				  input:required:valid {
+					background-image: url(valid.png);
+					background-position: right top;
+					background-repeat: no-repeat;
+				  }
+
+ 
+				*, *:before, *:after {
+						 box-sizing: border-box;
+				}
+				.form-control {
+					border-radius: 1 !important;
+					box-shadow: none;
+					font-family: "Source Sans Pro",sans-serif;
+				}
+				.form-control {
+							background-color: #fff;
+							background-image: none;
+							border: 1px solid #ccc;
+							border-radius: 4px;
+							box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;							
+							display: block;
+							font-size: 14px;
+							height: 34px;
+							line-height: 1.42857;
+							padding: 6px 12px;
+							transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+							vertical-align: top;
+							color:#2B60DE;
+							font-weight:bold;
+							width: 100%;
+				}
+				.form-control-choice {
+							background-color: #fff;
+							background-image: none;
+							border: 1px solid #ccc;
+							border-radius: 4px;
+							box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;							
+							font-size: 14px;
+							height: 34px;
+							line-height: 1.42857;
+							padding: 6px 12px;
+							transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+							color:#2B60DE;
+							font-weight:bold;
+							width: 50%;
+				}
+				.form-control-textarea {
+							background-color: #fff;
+							background-image: none;
+							border: 1px solid #ccc;
+							border-radius: 4px;
+							box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+							display: block;
+							font-size: 14px;							 
+							line-height: 1.42857;
+							padding: 6px 12px;
+							transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+							vertical-align: top;
+							color:#2B60DE;
+							font-weight:bold;
+							width: 100%;
+				}
+				.form-control-half {
+							background-color: #fff;
+							background-image: none;
+							border: 1px solid #ccc;
+							border-radius: 4px;
+							box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+							font-size: 14px;							 
+							line-height: 1.42857;
+							padding: 6px 12px;
+							transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+							vertical-align: top;
+							color:#2B60DE;
+							font-weight:bold;
+							width: 45%;
+				}
+				.form-group {
+							 margin-bottom: 10px;
+				}
+				.bg-gray {
+							  background-color: #eaeaec !important;
+				}
+
+
+				.box.box-primary {
+							 border-top-color: #3c8dbc;
+				}
+				.box {
+							background: none repeat scroll 0 0 white;
+							border-radius: 3px;
+							border-top: 2px solid #c1c1c1;
+							box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+							margin-bottom: 20px;
+							position: relative;
+							width: 100%;
+				}
+
+				.box-body {
+							border-radius: 0 0 3px 3px;
+							padding: 10px;
+				}
+				.box-header:after {
+							clear: both;
+				}
+				.box .box-header:before, .box .box-header:after {
+							content: " ";
+							display: table;
+				}
+				.btn.btn-primary {
+					    background-color: #3b679e;
+					    border-color: #f2f1f0;
+					    font-weight: bold;
+				}
+				.btn {
+							border: 1px solid transparent;
+							border-radius: 3px;
+							box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.09) inset;
+							font-weight: 500;
+				}
+				.btn-primary {
+							background-color: #428bca;
+							border-color: #357ebd;
+							color: #fff;
+				}
+				.btn {
+							-moz-user-select: none;
+							background-image: none;
+							border: 1px solid transparent;
+							border-radius: 4px;
+							cursor: pointer;
+							display: inline-block;
+							font-size: 14px;
+							font-weight: normal;
+							line-height: 1.42857;
+							margin-bottom: 0;
+							padding: 6px 12px;
+							text-align: center;
+							vertical-align: middle;
+							white-space: nowrap;
+				}
+ 
+		 
+				.odd {
+						border: 1px solid #F2F1F0;
+						//background-color:8CC1F8 #cccccc;
+						background-color: #FFF;
+						font-weight: bold;
+			    }
+				.even {
+						border: 1px solid #F2F1F0;
+						//background-color: #FBDA86;
+						background-color: #eaf2f6;
+						color:#2B60DE;
+						font-weight:bold;
+			    }
+			    /*
+			    input[type=radio] {
+				    -webkit-transform: scale(1.8, 1.8);
+				    margin: .75em .75em .75em 0;
+				}
+
+				input[type=checkbox] {
+				     -webkit-transform: scale(1.5, 1.5);
+				    margin: .75em .75em .75em 0;
+				}
+				*/
+				footer {
+					width:100%;
+					height:40px;
+					position:fixed;
+					bottom:0;
+					left:0;
+					background-color:#3c8dbc;
+				}
+				.popup{
+						display:none;background-color:#fff; line-height:1.25;width:640px;height:480px;border-width:1px;border-color:#fff;font-family:arial; font:bold;
+				}
+				.bClose{
+						border-radius:7px 7px 7px 7px;box-shadow:none;font:bold 131% sans-serif;padding:2px 6px 2px;position:absolute;right:-7px;top:-7px;background-color:#05AFFE;color:#fff;cursor:pointer;
+				}
+				.bClose:hover{background-color:#1e1e1e}
+				
+#busyDiv{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+    z-index: 50000;
+}
+.box-title a, .box-title{
+	font-size: 12px;
+	color: #3d9970;
+	font-weight:bold;
+}
+
+.c1{
+    width: 33%;
+    
+}
+.c2{
+    width: 33%;
+    
+}
+
+.c3 {
+    width: 34%;  
+}
+
+ 
+
+.title{
+  font-family: "Roboto";
+  color: rgb(45,137,225);
+  font-weight: 400;
+  font-size: 2.460rem;
+  font-style: normal;
+}
+.sectiontitle{
+  font-family: "Roboto";
+  color: rgb(45,137,225);
+  font-weight: 400;
+  font-size: 1.460rem;
+  font-style: normal;
+}
+.questions {
+  font-family: "Roboto";
+  color: rgb(45,137,225);
+  font-weight: 700;
+  font-size: 1.000rem;
+  font-style: normal;
+}
+.requird {
+  font-family: "Roboto";
+  color: rgb(196,59,29);
+  font-weight: 400;
+  font-size: 1.000rem;
+  font-style: normal;
+}
+.ss-rightlabel {
+  font-family: "Roboto";
+  color: rgb(80,80,80);
+  font-weight: 400;
+  font-size: 1.000rem;
+  font-style: normal;
+}
+.alter1 tr:nth-child(even) {background: #fff}
+.alter1 tr:nth-child(odd) {background: rgb(242,242,242);}
+.scrolled {
+	overflow-x: auto;
+	overflow-y: hidden;
+}

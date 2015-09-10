@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+<resource-ref>
+    <description>DB Connection</description>
+    <res-ref-name>jdbc/survey</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+</resource-ref>
+<!-- End of datasource context initialization -->
+
+    <context-param>
+      <description> 
+	   'debug' flag when turned on will print debug information. Valid values='true' or 'false'
+	   Default='false'
+      </description> 
+      <param-name>debug</param-name>
+      <param-value>true</param-value>
+    </context-param> 
+  
+    <context-param>
+      <description>Main class for database access</description>
+      <param-name>com.radiotalky.dao.class</param-name>
+      <param-value>com.radiotalky.survey.dao.RadioTalkyDAO</param-value>
+    </context-param>
+    
+    <security-constraint>
+    <web-resource-collection>
+        <url-pattern>*.js</url-pattern>    
+    </web-resource-collection>
+     
+</security-constraint>
+ 
+
+	<!-- Framework Initialization -->
+    <listener>
+      <listener-class>com.radiotalky.survey.ContextInitializer</listener-class>
+    </listener>
+  	<!-- End of Framework Initialization -->
+  
+ <!--Stream Servlet Initialization --> 
+	<servlet>
+	  <display-name>MyStreamerServlet</display-name>
+	  <servlet-name>MyStreamerServlet</servlet-name>
+	  <servlet-class>com.radiotalky.survey.utils.MyStreamer</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>		
+	<servlet-mapping>
+	  <servlet-name>MyStreamerServlet</servlet-name>
+	  <url-pattern>/stream</url-pattern>
+	 </servlet-mapping>
+	 
+ <!--Stream Servlet Initialization --> 
+	<servlet>
+	  <display-name>ExcelExporterServlet</display-name>
+	  <servlet-name>ExcelExporterServlet</servlet-name>
+	  <servlet-class>com.radiotalky.survey.utils.ExcelExporter</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>		
+	<servlet-mapping>
+	  <servlet-name>ExcelExporterServlet</servlet-name>
+	  <url-pattern>/excelstream</url-pattern>
+	 </servlet-mapping>
+ <!-- 
+	<servlet>
+	  <display-name>AjaxFileUpload</display-name>
+	  <servlet-name>UploadFile</servlet-name>
+	  <servlet-class>com.radiotalky.survey.utils.UploadFile</servlet-class>
+	  <load-on-startup>1</load-on-startup>
+	</servlet>		
+	<servlet-mapping>
+	  <servlet-name>UploadFile</servlet-name>
+	  <url-pattern>/UploadFile</url-pattern>
+	 </servlet-mapping>
+ --> 	 	
+	<!--RestWebservice Initialization -->
+	
+	<servlet>
+	  	<display-name>JAX-RS REST Servlet</display-name>
+	  	<servlet-name>JAX-RS REST Servlet</servlet-name>
+	  	<servlet-class>
+	  		com.sun.jersey.spi.container.servlet.ServletContainer
+	  	</servlet-class>
+	  	<load-on-startup>1</load-on-startup>
+    </servlet>
+	<servlet-mapping>
+	  <servlet-name>JAX-RS REST Servlet</servlet-name>
+	  <url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+  
+ 
+<filter>
+    <filter-name>GzipFilter</filter-name>
+    <filter-class>com.radiotalky.filter.GZipServletFilter</filter-class>
+</filter>
+
+<filter-mapping>
+    <filter-name>GzipFilter</filter-name>
+    <url-pattern>*.js</url-pattern>
+</filter-mapping>
+<filter-mapping>
+    <filter-name>GzipFilter</filter-name>
+    <url-pattern>*.css</url-pattern>
+</filter-mapping>
+<filter-mapping>
+    <filter-name>GzipFilter</filter-name>
+    <url-pattern>*.html</url-pattern>
+</filter-mapping>
+<filter-mapping>
+    <filter-name>GzipFilter</filter-name>
+    <url-pattern>*.htm</url-pattern>
+</filter-mapping>
+<filter-mapping>
+    <filter-name>GzipFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+</filter-mapping>
+<filter-mapping>
+    <filter-name>GzipFilter</filter-name>
+    <url-pattern>/admin</url-pattern>
+</filter-mapping>    
+<filter-mapping>
+    <filter-name>GzipFilter</filter-name>
+    <url-pattern>/services/admin/requesthandler</url-pattern>
+</filter-mapping>    
+<filter-mapping>
+    <filter-name>GzipFilter</filter-name>
+    <url-pattern>/stream</url-pattern>
+</filter-mapping>    
+
+ 
+
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>signIn.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+		
+</web-app>

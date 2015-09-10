@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Asynchronous file Upload in Java Web Application</title>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery.ajaxfileupload.js"></script>
+<script>
+
+function replaceAll(find, replace, str) {
+  return str.replace(new RegExp(find, 'g'), replace);
+  
+}
+
+ 
+         $(document).ready(function(){
+			  
+			  $('input[type="file"]').ajaxfileupload({
+			       'action': 'UploadFile',           
+			   'onComplete': function(response) { 
+			   		     
+			         $('#busyDiv').hide();
+			            response = replaceAll('<pre>','', response);
+			            response = replaceAll('</pre>','', response);
+			            
+			            handleResponse(response);
+			       },
+			       'onStart': function() {
+			        
+			         $('#busyDiv').show();
+			       }
+			  });
+	});
+</script>
+</head>
+<body>
+<form name="balendra">
+ 
+ <input type="file" name="datafile" accept="image/*" /> 
+ <div id="upload" style="display:none;">Wait ! uploading..</div>
+ 
+</form>
+
+ 
+ 
+ <input type="file" name="balendrafile" accept="image/*" /> <br/>
+ <input type="text" />
+ 
+</body>
+</html>
